@@ -48,17 +48,17 @@ State of work for the build described in [`tech-spec.md`](tech-spec.md). Each ro
 
 | # | Task | Status | Depends |
 |----|------|--------|---------|
-| 19 | [Copy lexicon module](tasks/19-copy-lexicon.md) | todo | 01 |
-| 20 | [`TitleScreen` + `Wordmark`](tasks/20-title-screen.md) | todo | 03 |
-| 21 | [`WinScreen` + `LossScreen`](tasks/21-end-screens.md) | todo | 19 |
-| 22 | [Vermilion pulse for one-guess-left](tasks/22-vermilion-pulse.md) | todo | 11, 17 |
-| 23 | [`LiveRegion` + ARIA announcements](tasks/23-live-region.md) | todo | 08, 19 |
+| 19 | [Copy lexicon module](tasks/19-copy-lexicon.md) | done | 01 |
+| 20 | [`TitleScreen` + `Wordmark`](tasks/20-title-screen.md) | done | 03 |
+| 21 | [`WinScreen` + `LossScreen`](tasks/21-end-screens.md) | done | 19 |
+| 22 | [Vermilion pulse for one-guess-left](tasks/22-vermilion-pulse.md) | done | 11, 17 |
+| 23 | [`LiveRegion` + ARIA announcements](tasks/23-live-region.md) | done | 08, 19 |
 
 ## M6 — Audio (optional)
 
 | # | Task | Status | Depends |
 |----|------|--------|---------|
-| 24 | [`useAudio` + Howler integration](tasks/24-audio.md) | todo | 08 |
+| 24 | [`useAudio` + Howler integration](tasks/24-audio.md) | done | 08 |
 
 ## M7 — Accessibility & perf pass
 

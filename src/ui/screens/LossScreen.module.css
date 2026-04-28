@@ -1,0 +1,71 @@
+.screen {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+.cat {
+  width: 11rem;
+  height: 11rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--sumi);
+}
+
+.kanji {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--usu-zumi);
+  margin: 0;
+}
+
+.reveal {
+  margin: 1.4rem 0 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--usu-zumi);
+}
+
+.word {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.16em;
+  color: var(--sumi);
+  margin-left: 0.4rem;
+}
+
+.again {
+  position: absolute;
+  bottom: 1.6rem;
+  right: 1.6rem;
+  background: none;
+  border: none;
+  color: var(--usu-zumi);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+}
+
+.again:focus-visible {
+  outline: 2px solid var(--sumi);
+  outline-offset: 4px;
+}

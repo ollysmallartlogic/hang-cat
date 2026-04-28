@@ -1,0 +1,111 @@
+.screen {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 5rem 1.5rem 8rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.wordmarkSlot {
+  margin-top: 1rem;
+}
+
+.catSlot {
+  width: 9rem;
+  height: 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat {
+  width: 100%;
+  height: 100%;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.option {
+  background: none;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  font-family: var(--font-body);
+  font-variant-caps: all-small-caps;
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  color: var(--sumi);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.option:focus-visible {
+  outline: 2px solid var(--sumi);
+  outline-offset: 4px;
+}
+
+.option:hover .label {
+  color: var(--sumi);
+}
+
+.option .label {
+  color: var(--sumi);
+}
+
+.option .gloss {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-variant-caps: normal;
+  letter-spacing: 0;
+  color: var(--usu-zumi);
+}
+
+.audioToggle {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--usu-zumi);
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.audioToggle:hover {
+  color: var(--sumi);
+}
+
+.audioToggle:focus-visible {
+  outline: 2px solid var(--sumi);
+  outline-offset: 4px;
+}
+
+.seigaiha {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 14rem;
+  width: 100%;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to top, rgb(0 0 0 / 1) 0%, rgb(0 0 0 / 0) 100%);
+  mask-image: linear-gradient(to top, rgb(0 0 0 / 1) 0%, rgb(0 0 0 / 0) 100%);
+}

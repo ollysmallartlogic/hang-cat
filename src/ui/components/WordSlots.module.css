@@ -37,3 +37,23 @@
     transform: translateY(0);
   }
 }
+
+[data-thin-paws] .slot {
+  border-bottom-color: var(--shu-iro);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    border-bottom-color: var(--shu-iro);
+  }
+  50% {
+    border-bottom-color: color-mix(in srgb, var(--shu-iro) 35%, transparent);
+  }
+}
+
+body[data-reduced-motion='true'] [data-thin-paws] .slot {
+  animation: none;
+  border-bottom-color: var(--shu-iro);
+}

@@ -1,7 +1,7 @@
 # 21 — `WinScreen` + `LossScreen`
 
 - **Milestone:** M5 — Polish & copy
-- **Status:** todo
+- **Status:** done
 - **Depends on:** 19
 - **Spec refs:** design.md §4.3, §4.4, tech-spec.md §7 (Copy)
 

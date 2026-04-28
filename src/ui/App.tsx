@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
+import { LiveRegion } from './components/LiveRegion';
+import { useAnnouncer } from './hooks/useAnnouncer';
 import { GameProvider, useGame } from './hooks/useGame';
 import { useReducedMotion } from './hooks/useReducedMotion';
 import { GameScreen } from './screens/GameScreen';
@@ -12,6 +14,7 @@ function AppShell() {
   const [screen, setScreen] = useState<Screen>('title');
   const { state, newGame } = useGame();
   const reducedMotion = useReducedMotion();
+  useAnnouncer(state);
 
   useEffect(() => {
     if (typeof document === 'undefined') return;
@@ -39,16 +42,28 @@ function AppShell() {
     setScreen('game');
   }
 
+  let body: ReactNode;
   switch (screen) {
     case 'title':
-      return <TitleScreen onBegin={startGame} />;
+      body = <TitleScreen onBegin={startGame} />;
+      break;
     case 'game':
-      return <GameScreen />;
+      body = <GameScreen />;
+      break;
     case 'win':
-      return <WinScreen onAgain={startGame} />;
+      body = <WinScreen onAgain={startGame} />;
+      break;
     case 'loss':
-      return <LossScreen onAgain={startGame} />;
+      body = <LossScreen onAgain={startGame} />;
+      break;
   }
+
+  return (
+    <>
+      {body}
+      <LiveRegion />
+    </>
+  );
 }
 
 export function App() {

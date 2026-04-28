@@ -1,7 +1,8 @@
-import { createContext, useCallback, useContext, useMemo, useReducer, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useMemo, useReducer, useRef, type ReactNode } from 'react';
 import { initialState, reducer } from '../../game/reducer';
 import type { GameState } from '../../game/types';
 import { BONUS_WORDS, pickWord } from '../../game/words';
+import { announce } from '../announce';
 
 const RECENT_KEY = 'hang-cat:recent';
 const SEED_RE = /^[A-Z]{4,9}$/;
@@ -52,11 +53,20 @@ function lazyInit(): GameState {
 
 export function GameProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, undefined, lazyInit);
+  // Mirror state into a ref so `guess` can read the live value without
+  // needing to re-create the callback on every keystroke.
+  const stateRef = useRef(state);
+  stateRef.current = state;
 
   const guess = useCallback((letter: string) => {
     if (typeof letter !== 'string' || letter.length !== 1) return;
     const upper = letter.toUpperCase();
     if (!LETTER_RE.test(upper)) return;
+    const current = stateRef.current;
+    if (current.status === 'in_progress' && current.guessedLetters.has(upper)) {
+      announce('already guessed');
+      return;
+    }
     dispatch({ type: 'GUESS', letter: upper });
   }, []);
 

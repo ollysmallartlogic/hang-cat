@@ -1,7 +1,7 @@
 # 23 — `LiveRegion` + ARIA announcements
 
 - **Milestone:** M5 — Polish & copy
-- **Status:** todo
+- **Status:** done
 - **Depends on:** 08, 19
 - **Spec refs:** design.md §9, tech-spec.md §9 (Accessibility)
 

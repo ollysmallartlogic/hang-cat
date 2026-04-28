@@ -1,7 +1,7 @@
 # 20 — `TitleScreen` + `Wordmark`
 
 - **Milestone:** M5 — Polish & copy
-- **Status:** todo
+- **Status:** done
 - **Depends on:** 03
 - **Spec refs:** design.md §2 (Typography), §4.1 (Title Screen), tech-spec.md §7 (Screens)
 

@@ -1,7 +1,7 @@
 # 22 — Vermilion pulse for one-guess-left
 
 - **Milestone:** M5 — Polish & copy
-- **Status:** todo
+- **Status:** done
 - **Depends on:** 11, 17
 - **Spec refs:** design.md §7 (Vermilion pulse), §9 (Accessibility), tech-spec.md §7
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { useAudio } from '../hooks/useAudio';
 import { useGame } from '../hooks/useGame';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { BRANCH_LEAF_ANCHORS, MOMIJI_LEAF_PATH, type BranchLeafAnchor } from './leaf-shape';
@@ -27,6 +28,7 @@ function spawnLeaf(): FallingLeaf {
 export function LeafFall() {
   const { state } = useGame();
   const reducedMotion = useReducedMotion();
+  const { play } = useAudio();
   const [leaves, setLeaves] = useState<FallingLeaf[]>([]);
   const prevCountRef = useRef(state.wrongLetters.length);
 
@@ -39,7 +41,10 @@ export function LeafFall() {
     const additions: FallingLeaf[] = [];
     for (let i = 0; i < next - prev; i++) additions.push(spawnLeaf());
     setLeaves((cur) => [...cur, ...additions]);
-  }, [state.wrongLetters.length, reducedMotion]);
+    // One `fmm` per wrong guess — collapses multiple leaves from a single
+    // delta into a single dry note rather than a chord.
+    play('fmm');
+  }, [state.wrongLetters.length, reducedMotion, play]);
 
   if (reducedMotion) return null;
 

@@ -1,7 +1,7 @@
 # 19 — Copy lexicon module
 
 - **Milestone:** M5 — Polish & copy
-- **Status:** todo
+- **Status:** done
 - **Depends on:** 01
 - **Spec refs:** design.md §5 (Voice & Copy), tech-spec.md §7 (Copy)
 

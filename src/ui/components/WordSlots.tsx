@@ -1,6 +1,7 @@
-import { memo, useRef } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import type { GameState } from '../../game/types';
 import { correctLetters, hasOneGuessLeft } from '../../game/selectors';
+import { useAudio } from '../hooks/useAudio';
 import styles from './WordSlots.module.css';
 
 interface Props {
@@ -9,7 +10,8 @@ interface Props {
 
 function WordSlotsImpl({ state }: Props) {
   const revealed = correctLetters(state);
-  const dataState = hasOneGuessLeft(state) ? 'thin-paws' : undefined;
+  const thinPaws = hasOneGuessLeft(state) || undefined;
+  const { play } = useAudio();
 
   // Track which slot indices have ever been revealed so each slot animates
   // exactly once — on the render that first shows it.
@@ -24,8 +26,18 @@ function WordSlotsImpl({ state }: Props) {
     revealedRef.current = initial;
   }
 
+  // Play one `tok` per correct guess that reveals at least one new slot.
+  // Multiple slots from the same guess collapse into a single sound — design
+  // calls for "a single soft tok," not a chord.
+  const lastRevealedCountRef = useRef<number>(revealed.size);
+  useEffect(() => {
+    const prev = lastRevealedCountRef.current;
+    lastRevealedCountRef.current = revealed.size;
+    if (revealed.size > prev) play('tok');
+  }, [revealed, play]);
+
   return (
-    <div className={styles.row} data-state={dataState} aria-label="Word">
+    <div className={styles.row} data-thin-paws={thinPaws} aria-label="Word">
       {[...state.targetWord].map((ch, i) => {
         const shown = revealed.has(ch);
         const justRevealed = shown && !revealedRef.current.has(i);
