@@ -1,0 +1,57 @@
+{
+  "name": "hang-cat",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "tsx scripts/validate-words.ts",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "validate:words": "tsx scripts/validate-words.ts",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.0.18",
+    "@fontsource/jetbrains-mono": "^5.0.20",
+    "@fontsource/shippori-mincho": "^5.0.18",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "@playwright/test": "^1.47.2",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "@vitejs/plugin-react": "^4.3.2",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.12",
+    "globals": "^15.10.0",
+    "jsdom": "^25.0.1",
+    "prettier": "^3.3.3",
+    "tsx": "^4.21.0",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.8.1",
+    "vite": "^5.4.8",
+    "vitest": "^2.1.2"
+  },
+  "packageManager": "pnpm@10.33.2",
+  "engines": {
+    "node": ">=20"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`maskedWord > matches snapshot across a representative word set 1`] = `
+[
+  [
+    "CAT",
+    "_ A _",
+  ],
+  [
+    "CABIN",
+    "_ A _ I _",
+  ],
+  [
+    "WHISKER",
+    "_ _ I _ _ E _",
+  ],
+  [
+    "PURR",
+    "_ U _ _",
+  ],
+  [
+    "POUNCE",
+    "_ O U _ _ E",
+  ],
+  [
+    "BANANA",
+    "_ A _ A _ A",
+  ],
+  [
+    "KITTEN",
+    "_ I _ _ E _",
+  ],
+]
+`;

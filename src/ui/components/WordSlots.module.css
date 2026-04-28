@@ -1,0 +1,39 @@
+.row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1.6em;
+  gap: 0.45em;
+  justify-content: center;
+  margin: 0 auto;
+  font-family: var(--font-mono);
+  font-size: 2rem;
+}
+
+.slot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 1.4em;
+  border-bottom: 1px dashed var(--nezumi);
+  color: var(--sumi);
+  line-height: 1;
+}
+
+.empty {
+  color: transparent;
+}
+
+.reveal {
+  animation: letter-reveal var(--t-letter-reveal) ease-out both;
+}
+
+@keyframes letter-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

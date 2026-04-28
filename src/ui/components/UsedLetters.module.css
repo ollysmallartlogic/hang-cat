@@ -1,0 +1,15 @@
+.line {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--usu-zumi);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+.label {
+  margin-right: 0.4em;
+}
+
+.letter + .letter {
+  margin-left: 0.5em;
+}

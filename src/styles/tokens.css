@@ -1,0 +1,27 @@
+:root {
+  --kinari: #f4ede0;
+  --sumi: #1f1b16;
+  --usu-zumi: #5c544a;
+  --matcha: #7a8b5c;
+  --shu-iro: #c8423c;
+  --nezumi: #a8a096;
+
+  --t-letter-reveal: 240ms;
+  --t-cat-pose: 320ms;
+  --t-leaf-fall: 1800ms;
+  --t-cat-fall: 600ms;
+  --pulse-hz: 0.5;
+}
+
+body[data-reduced-motion='true'] {
+  --t-letter-reveal: 0ms;
+  --t-cat-pose: 0ms;
+  --t-leaf-fall: 0ms;
+  --t-cat-fall: 0ms;
+}
+
+html,
+body {
+  background-color: var(--kinari);
+  color: var(--sumi);
+}

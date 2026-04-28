@@ -1,0 +1,38 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(13, minmax(0, 1fr));
+  gap: 0.4rem;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.tile {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  padding: 0.55rem 0;
+  background: transparent;
+  color: var(--sumi);
+  border: 1px solid var(--sumi);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.tile:hover:not(.used) {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(31, 27, 22, 0.12);
+}
+
+.tile:focus-visible {
+  outline: 2px solid var(--sumi);
+  outline-offset: 2px;
+}
+
+.used {
+  color: var(--nezumi);
+  background: transparent;
+  border-color: var(--nezumi);
+  cursor: default;
+  opacity: 0.55;
+}
