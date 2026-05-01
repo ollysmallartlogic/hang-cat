@@ -35,4 +35,4 @@ The first screen the player sees: wordmark, two quiet options, a cat washing its
 ## Notes
 
 - The Japanese text is signature, not translation. Don't add `lang="ja"` and certainly don't try to translate the wordmark.
-- "How to play" content is out of scope for v1; the link can route to a stub page or a `<dialog>` reading "soon. the cat is busy." The deferral is fine.
+- "How to play" was originally deferred as a `<dialog>` stub. It now opens a real dialog with brief rules copy, click-outside / Escape / close-button dismissal, and `aria-modal` semantics.

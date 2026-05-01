@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Wordmark } from '../components/Wordmark';
 import { copy } from '../copy';
 import { useAudio } from '../hooks/useAudio';
@@ -175,50 +175,42 @@ function PawWashingCat({ className }: { className?: string }) {
 }
 
 function HowToPlayDialog({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
   return (
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="How to play"
-      style={{
-        position: 'fixed',
-        inset: 0,
-        background: 'rgb(31 27 22 / 0.18)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '1rem',
-        zIndex: 10,
-      }}
+      aria-labelledby="how-to-play-title"
+      className={styles.dialogScrim}
       onClick={onClose}
     >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        style={{
-          background: 'var(--kinari)',
-          border: '1px solid var(--nezumi)',
-          padding: '2rem 2.5rem',
-          maxWidth: '24rem',
-          textAlign: 'center',
-          fontFamily: 'var(--font-body)',
-          color: 'var(--sumi)',
-        }}
-      >
-        <p style={{ margin: 0 }}>soon. the cat is busy.</p>
+      <div className={styles.dialog} onClick={(e) => e.stopPropagation()}>
+        <h2 id="how-to-play-title" className={styles.dialogTitle}>
+          How to play
+        </h2>
+        <p className={styles.dialogPara}>
+          A word is hidden. Guess letters to reveal it.
+        </p>
+        <p className={styles.dialogPara}>
+          Six wrong guesses and the cat slips off the branch — gracefully, of
+          course. The leaves on the branch are your remaining guesses.
+        </p>
+        <p className={styles.dialogPara}>
+          Type with your keyboard, or tap the tiles. Repeat guesses are
+          politely ignored — the cat remembers.
+        </p>
         <button
           type="button"
           onClick={onClose}
           autoFocus
-          style={{
-            marginTop: '1.5rem',
-            background: 'none',
-            border: 'none',
-            color: 'var(--usu-zumi)',
-            fontSize: '0.95rem',
-            cursor: 'pointer',
-            fontVariantCaps: 'all-small-caps',
-            letterSpacing: '0.18em',
-          }}
+          className={styles.dialogClose}
         >
           close
         </button>
