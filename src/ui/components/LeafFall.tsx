@@ -17,8 +17,11 @@ interface FallingLeaf {
 
 let nextLeafId = 1;
 
-function spawnLeaf(): FallingLeaf {
-  const origin = BRANCH_LEAF_ANCHORS[Math.floor(Math.random() * BRANCH_LEAF_ANCHORS.length)];
+function spawnLeaf(anchorIndex: number): FallingLeaf {
+  // Origin is the specific branch anchor that just detached so the falling
+  // leaf visually replaces the static one CatScene has stopped rendering.
+  const clamped = Math.min(Math.max(anchorIndex, 0), BRANCH_LEAF_ANCHORS.length - 1);
+  const origin = BRANCH_LEAF_ANCHORS[clamped];
   const drift = (Math.random() - 0.5) * 60;
   const fall = SCENE_FLOOR_Y - origin.y;
   const rotate = (Math.random() - 0.5) * 240;
@@ -39,7 +42,7 @@ export function LeafFall() {
     if (reducedMotion) return;
     if (next <= prev) return;
     const additions: FallingLeaf[] = [];
-    for (let i = 0; i < next - prev; i++) additions.push(spawnLeaf());
+    for (let i = 0; i < next - prev; i++) additions.push(spawnLeaf(prev + i));
     setLeaves((cur) => [...cur, ...additions]);
     // One `fmm` per wrong guess — collapses multiple leaves from a single
     // delta into a single dry note rather than a chord.

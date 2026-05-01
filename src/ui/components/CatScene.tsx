@@ -61,11 +61,13 @@ export function CatScene() {
           strokeLinejoin="round"
         >
           <path d="M 6 30 C 80 20, 160 20, 234 30" strokeWidth="3.5" />
-          {BRANCH_LEAF_ANCHORS.map((anchor, i) => (
-            <g key={i} transform={`translate(${anchor.x} ${anchor.y})`}>
-              <path d={MOMIJI_LEAF_PATH} fill="var(--matcha)" stroke="none" />
-            </g>
-          ))}
+          {BRANCH_LEAF_ANCHORS.map((anchor, i) =>
+            i < state.wrongLetters.length ? null : (
+              <g key={i} transform={`translate(${anchor.x} ${anchor.y})`}>
+                <path d={MOMIJI_LEAF_PATH} fill="var(--matcha)" stroke="none" />
+              </g>
+            ),
+          )}
         </g>
         <g
           className={styles.poses}
